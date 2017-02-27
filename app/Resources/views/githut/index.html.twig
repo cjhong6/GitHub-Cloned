@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class = "col-sm-3">
+        {#AppBundle:controller(name without 'controller'):action(name without 'action'), parameter #}
+        {{ render (controller('AppBundle:githut:profil', {'username' : username})) }}
+        {#{% include 'githut/profile.html.twig' %}#}
+
+    </div>
+
+    <div class="col-sm-9">
+        {% include 'githut/repos.html.twig' %}
+    </div>
+
+{% endblock %}
+
