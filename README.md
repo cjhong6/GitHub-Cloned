@@ -1,4 +1,4 @@
-<h1>Git Hub Cloned<h1>
+<h1>Git Hub Cloned</h1>
 
 **Git Hub Cloned** is a cloing github project to get experience in Symfony framework and web application using[The Git Hub API](https://api.github.com/users/username/#).
 
