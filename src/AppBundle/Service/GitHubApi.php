@@ -26,4 +26,21 @@ class GitHubApi{
             ]
          ];
     }
+
+    public function getRepos($username){
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('GET','http://api.github.com/users/' . $username . '/repos' );
+        $data = json_decode($response->getBody()->getContents(),true);
+
+        dump($data);
+
+        return [
+            'repo_count' => count($data),
+// oop through all of the arrays in $data and return the most start value, default value for most start is 0
+            'most_stars' => array_reduce($data, function($mostStar,$currentRepo){
+                return $currentRepo['stargazers_count'] > $mostStar ? $currentRepo['stargazers_count'] : $mostStar;
+            }, 0),
+            'repos' => $data
+        ];
+    }
 }

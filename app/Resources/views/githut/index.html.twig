@@ -4,12 +4,15 @@
     <div class = "col-sm-3">
         {#AppBundle:controller(name without 'controller'):action(name without 'action'), parameter #}
         {{ render (controller('AppBundle:githut:profil', {'username' : username})) }}
+
+        {#if the data is in the same action as index #}
         {#{% include 'githut/profile.html.twig' %}#}
 
     </div>
 
     <div class="col-sm-9">
-        {% include 'githut/repos.html.twig' %}
+        {{ render (controller('AppBundle:githut:repos', {'username' : username})) }}
+        {#{% include 'githut/repos.html.twig' %}#}
     </div>
 
 {% endblock %}
